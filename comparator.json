@@ -1,0 +1,18 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": ["Erdos1221.erdos_1221.variants.r_one"],
+  "definition_names": [
+    "Erdos1221.pts",
+    "Erdos1221.sortedPoint",
+    "Erdos1221.unrolled",
+    "Erdos1221.rSpan",
+    "Erdos1221.maxSpan",
+    "Erdos1221.minSpan",
+    "Erdos1221.bigLambda",
+    "Erdos1221.smallLambda",
+    "Erdos1221.mu"
+  ],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"],
+  "enable_nanoda": true
+}

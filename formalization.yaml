@@ -1,0 +1,91 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Erdős Problem 1221: the case r = 1"
+  description: >-
+    For a sequence of points on the circle, let M_n and m_n be the longest and shortest arcs
+    between consecutive points among the first n points. De Bruijn and Erdős proved that the
+    best possible values of limsup n·M_n, liminf n·m_n and limsup M_n/m_n are 1/log 2,
+    1/log 4 and 2. This formalizes all three equalities as stated in formal-conjectures
+    (Erdős Problem 1221, variant r_one).
+  authors:
+    - "Ellweb3"
+  license: "Apache-2.0"
+  responsible_maintainers:
+    - "Ellweb3"
+
+classification:
+  arxiv: ["math.NT", "math.CO"]
+  msc2020: ["11K06", "11K38"]
+
+sources:
+  - title: "Sequences of points on a circle"
+    authors:
+      - "N. G. de Bruijn"
+      - "P. Erdős"
+    id: "https://www.renyi.hu/~p_erdos/1949-13.pdf"
+    type: "article"
+    location: "Nederl. Akad. Wetensch., Proc. 52 (1949), 14–17 = Indagationes Math. 11 (1949), 46–49"
+    relationship: "independently-proves"
+    note: >-
+      The witness a_k = log₂(2k − 1) is the one of §2. The lower bounds use pigeonhole arguments
+      on the arcs written for this formalization; they follow the ideas of §§3–5 but not their
+      exact presentation.
+    license: "unknown"
+    author_endorsement: "n/a"
+  - title: "Erdős Problem 1221 in google-deepmind/formal-conjectures"
+    id: "https://github.com/google-deepmind/formal-conjectures/blob/ea8e3e198ded6fc73efb7f5653b74b28ac4ae1a8/FormalConjectures/ErdosProblems/1221.lean"
+    type: "formalization"
+    relationship: "other"
+    note: "Source of the definitions and the statement, copied verbatim into Challenge.lean."
+    license: "Apache-2.0"
+
+related_formalizations: []
+
+status:
+  scope: >-
+    The full statement Erdos1221.erdos_1221.variants.r_one: bigLambda 1 = 1/log 2,
+    smallLambda 1 = 1/log 4 and mu 1 = 2. The general-r conjectures of the problem are not
+    addressed.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: []
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["Claude Opus 5.5"]
+      framework: "Claude Code"
+      tool_setup: "Claude Code agent writing Lean and compiling it with lake after each step"
+      cost:
+        wall_time: "about one day"
+        spend_usd: "subscription-based"
+        hardware: "local machine"
+      prompting_notes: "The human chose the problem and approved each publishing step."
+  spend_usd: "subscription-based"
+  notes: >-
+    The proof was written by an AI agent (Claude Code) under human direction. The statement
+    was not written by the agent: it is copied verbatim from formal-conjectures.
+
+fidelity:
+  divergences: "none known"
+
+review:
+  status: "self-assessed"
+  reviewers:
+    - "none"
+  notes: >-
+    The statement is a verbatim copy of formal-conjectures. Comparator checks that the
+    solution proves exactly that statement with the standard axioms.
+
+alignment:
+  namespace: "Erdos1221"
+  statements:
+    - source: "de Bruijn and Erdős (1949), §§2–5"
+      lean: "Erdos1221.erdos_1221.variants.r_one"
+      module: "Challenge"
+      status: "proved"
+      note: "Λ₁ = 1/log 2, λ₁ = 1/log 4 and μ₁ = 2."
+
+acknowledgements: "Mathlib; google-deepmind/formal-conjectures for the statement."
